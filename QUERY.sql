@@ -136,3 +136,22 @@ where
 
 
 
+
+
+
+
+-- Query 4: Extract detailed reservation log with customer names and match fixtures
+select 
+    bk.booking_id, 
+    usr.full_name, 
+    mtch.fixture, 
+    bk.total_cost
+from 
+    bookings as bk
+inner join users as usr on bk.user_id = usr.user_id
+inner join matches as mtch on bk.match_id = mtch.match_id;
+
+
+
+
+
