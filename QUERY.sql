@@ -108,3 +108,16 @@ where
 
 
 
+-- Query 2: Lookup users by specific name patterns (Case-Insensitive)
+select 
+    u.user_id, 
+    u.full_name, 
+    u.email
+from 
+    users as u
+where 
+    u.full_name ilike 'Tanvir%' 
+    or u.full_name ilike '%Haque%';
+
+
+
