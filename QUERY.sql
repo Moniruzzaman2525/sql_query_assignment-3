@@ -121,3 +121,18 @@ where
 
 
 
+
+
+-- Query 3: Identify unresolved bookings requiring attention
+select 
+    b.booking_id, 
+    b.user_id, 
+    b.match_id, 
+    coalesce(b.payment_status, 'Action Required') as systematic_status
+from 
+    bookings as b
+where 
+    b.payment_status is null;
+
+
+
