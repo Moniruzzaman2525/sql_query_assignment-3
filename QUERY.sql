@@ -155,3 +155,13 @@ inner join matches as mtch on bk.match_id = mtch.match_id;
 
 
 
+-- Query 5: Catalog all registered users alongside their bookings, including inactive fans
+select 
+    c.user_id, 
+    c.full_name, 
+    res.booking_id
+from 
+    users as c
+left outer join bookings as res on c.user_id = res.user_id
+order by 
+    c.user_id;
