@@ -90,3 +90,21 @@ VALUES
     (503, 2, 101, 'A-13', 'Confirmed', 150.00),
     (504, 2, 101, NULL,   NULL,        150.00),
     (505, 3, 102, 'C-20', 'Pending',   120.00);
+
+
+
+
+
+-- Query 1: Fetching active Champions League fixtures that are currently available
+select 
+    matches.match_id, 
+    matches.fixture, 
+    matches.base_ticket_price
+from 
+    matches
+where 
+    matches.tournament_category = 'Champions League'
+    and matches.match_status = 'Available';
+
+
+
