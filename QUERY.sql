@@ -165,3 +165,22 @@ from
 left outer join bookings as res on c.user_id = res.user_id
 order by 
     c.user_id;
+
+
+
+
+
+-- Query 6: Filter transactions that exceed the mean baseline expenditure
+select 
+    b.booking_id, 
+    b.match_id, 
+    b.total_cost
+from 
+    bookings as b
+where 
+    b.total_cost > (
+        select 
+            AVG(sub_b.total_cost) 
+        from 
+            bookings as sub_b
+    );
